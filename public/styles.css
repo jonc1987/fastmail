@@ -1,0 +1,164 @@
+:root {
+  color-scheme: light dark;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #f3f4f6;
+  color: #0f172a;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+header,
+footer {
+  background: linear-gradient(120deg, #2563eb, #4338ca);
+  color: white;
+  padding: 1.5rem 2rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+main {
+  flex: 1;
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.composer,
+.mailboxes {
+  background: white;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+}
+
+.composer form {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+input,
+textarea,
+button {
+  margin-top: 0.4rem;
+  font-size: 1rem;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #d1d5db;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #93c5fd;
+}
+
+button:hover:not([disabled]) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.mailboxes {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 240px 1fr;
+}
+
+.mailbox-list ul,
+.messages ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mailbox-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.mailbox-list li.active,
+.mailbox-list li:hover {
+  background: rgba(37, 99, 235, 0.12);
+}
+
+.badge {
+  background: #1d4ed8;
+  color: white;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.message-item {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+}
+
+.message-item.unread {
+  font-weight: 600;
+}
+
+#message-view {
+  margin-top: 1rem;
+  background: #f8fafc;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+}
+
+#message-body {
+  white-space: pre-wrap;
+  font-family: 'JetBrains Mono', 'Fira Mono', monospace;
+}
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .mailboxes {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}
