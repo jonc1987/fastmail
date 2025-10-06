@@ -19,9 +19,24 @@ footer {
   padding: 1.5rem 2rem;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
 header h1 {
   margin: 0;
   font-size: 2rem;
+}
+
+#user-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
 }
 
 main {
@@ -31,12 +46,28 @@ main {
   padding: 1.5rem;
 }
 
-.composer,
-.mailboxes {
+.card {
   background: white;
   border-radius: 1rem;
   padding: 1.5rem;
   box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
+}
+
+#app-shell {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+}
+
+.composer form {
+  display: grid;
+  gap: 1rem;
+}
+
+.from-line {
+  margin: 0;
+  font-weight: 600;
+  color: #1f2937;
 }
 
 .composer form {
@@ -149,8 +180,33 @@ button:hover:not([disabled]) {
   font-family: 'JetBrains Mono', 'Fira Mono', monospace;
 }
 
+.hint {
+  color: #475569;
+  margin-top: 0;
+}
+
+.seed-users {
+  margin-top: 1.5rem;
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+.seed-users dt {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.seed-users dd {
+  margin: 0 0 0.25rem 0;
+}
+
 @media (max-width: 900px) {
   main {
+    grid-template-columns: 1fr;
+  }
+
+  #app-shell {
     grid-template-columns: 1fr;
   }
 
