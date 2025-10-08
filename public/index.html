@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fastmail Live Demo</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Fastmail Demo</h1>
+        <p>Sign in, send real email, and triage your inbox.</p>
+      </div>
+      <div id="user-controls" hidden>
+        <span id="user-label"></span>
+        <button id="logout-button" type="button">Log out</button>
+      </div>
+    </header>
+    <main>
+      <section id="auth-panel" class="card">
+        <h2>Sign in</h2>
+        <p class="hint">Use the seeded demo accounts or your own configured SMTP credentials.</p>
+        <form id="login-form">
+          <label>Email<input id="login-email" name="email" type="email" required /></label>
+          <label>Password<input id="login-password" name="password" type="password" required /></label>
+          <button type="submit">Sign in</button>
+        </form>
+        <p id="login-status" role="status" aria-live="polite"></p>
+        <dl class="seed-users">
+          <dt>Demo users</dt>
+          <dd><code>demo@fastmail.test</code> / <code>demo-pass</code></dd>
+          <dd><code>team@fastmail.test</code> / <code>team-pass</code></dd>
+        </dl>
+      </section>
+      <section id="app-shell" hidden>
+        <section class="composer card">
+          <h2>Compose Email</h2>
+          <form id="compose-form">
+            <p class="from-line">From <strong id="from-display"></strong></p>
+            <label>To<input id="to" name="to" required /></label>
+            <label>Subject<input id="subject" name="subject" required /></label>
+            <label>Body<textarea id="body" name="body" rows="5"></textarea></label>
+            <div class="actions">
+              <button type="submit">Send Email</button>
+            </div>
+          </form>
+          <p id="status" role="status" aria-live="polite"></p>
+        </section>
+        <section class="mailboxes card">
+          <div class="mailbox-list">
+            <h2>Mailboxes</h2>
+            <ul id="mailbox-list"></ul>
+          </div>
+          <div class="messages">
+            <h2 id="messages-title">Messages</h2>
+            <ul id="message-list"></ul>
+            <article id="message-view" hidden>
+              <header>
+                <h3 id="message-subject"></h3>
+                <p id="message-meta"></p>
+              </header>
+              <pre id="message-body"></pre>
+              <button id="mark-read" hidden>Mark as read</button>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <small>Configure <code>SMTP_URL</code> to relay through a real mailbox provider. Data resets when the server restarts.</small>
+    </footer>
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
